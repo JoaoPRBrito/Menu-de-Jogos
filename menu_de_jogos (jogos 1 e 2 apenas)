@@ -1,0 +1,167 @@
+#include<stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+
+
+int main()
+{
+	menu_principal();
+	return 0;
+}
+
+void menu_principal(){
+	system("cls || clear");
+    int continuar=1;
+
+    do
+    {
+        printf("Bem Vindo!Digite qual minigame voce quer jogar.\n\n");
+        printf("Digite 1 para jogar Pergunta e resposta.\n");
+		printf("Digite 2 para jogar Adivinhe o numero.\n");
+		printf("Digite 3 para jogar Olho de cobra.\n");;
+        printf("Digite 0 para sair do programa.\n");
+
+        scanf("%d", &continuar);
+        system("cls || clear");
+
+        switch(continuar)
+        {
+            case 1:
+                //Pergunta e resposta
+                pergunta_resposta();
+                break;
+
+            case 2:
+                adivinhe_o_numero();
+                break;
+
+            case 3:
+                //Olho de cobra
+                break;
+
+            case 0:
+                sair();
+                break;
+
+            default:
+                printf("Digite uma opcao valida\n");
+        }
+    } while(continuar);
+}
+
+void sair()
+{
+    printf("Ja vai??? Nao! Nao! Espere! Naa...\n");
+}
+
+void pergunta_resposta(){
+	int resposta;
+    int r_c=0;
+
+//Primeira pergunta
+printf("Normalmente, quantos litros de sangue uma pessoa tem? Em media, quantos sao retirados numa doacao de sangue?\n");
+printf("1) Tem entre 2 a 4 litros. Sao retirados 450 mililitros.\n");
+printf("2) Tem entre 4 a 6 litros. Sao retirados 450 mililitros.\n");
+printf("3) Tem 10 litros. Sao retirados 2 litros.\n");
+printf("Digite o numero da sua resposta\n");
+
+scanf("%d", &resposta);
+// system("cls || clear");
+  
+if(resposta==2){
+printf("resposta correta!\n\n");
+r_c++;
+               
+}else{
+printf("resposta incorreta\n\n");
+printf("A resposta correta eh:2) Tem entre 4 a 6 litros. Sao retirados 450 mililitros.\n\n");
+}
+//Segunda Pergunta
+printf("De quem eh a famosa frase Penso, logo existo?\n");
+printf("1) Platao.\n");
+printf("2) Galileu Galilei.\n");
+printf("3) Descartes\n");
+printf("Digite o numero da sua resposta\n");
+
+scanf("%d", &resposta);
+// system("cls || clear");
+  
+if(resposta==3){
+printf("resposta correta!\n\n");
+r_c++;
+               
+}else{
+printf("resposta incorreta\n\n");
+printf("A resposta correta eh:3)Descartes\n\n");
+}
+//Terceira Pergunta 
+printf("De onde eh a invenção do chuveiro elétrico?\n");
+printf("1) França.\n");
+printf("2) Inglaterra.\n");
+printf("3) Brasil.\n");
+printf("Digite o numero da sua resposta\n\n");
+
+scanf("%d", &resposta);
+// system("cls || clear");
+  
+if(resposta==3){
+printf("resposta correta!\n\n");
+r_c++;
+               
+}else{
+printf("resposta incorreta\n\n");
+printf("A resposta correta eh:3)Brasil\n\n");
+}
+  printf("o numero de respostas corretas eh:%d\n\n",r_c);
+  printf("Deseja jogar novamente?Digite 1 para sim,ou 0 para voltar ao menu inicial.\n\n");
+  scanf("%d", &resposta);
+  if (resposta==1){
+	  pergunta_resposta();
+  }else{
+	  menu_principal();
+  }
+}
+void adivinhe_o_numero(){
+int resposta;
+int i;
+int j=0;
+int tentativas=5;
+i=rand() % 1000;
+  
+    printf("Estou pensando em um numero entre 0 e 1000.Tente adivinha qual eh e digite a sua resposta:\n\n");
+ 
+    	
+    for(i!=resposta;j<5;j++){
+	scanf("%d",&resposta);
+	printf("\n");
+    if(resposta<i){
+	printf("O numero que estou pensando eh maior que esse numero\n\n");
+	printf("Voce tem %d tentativas\n\n",tentativas);
+    tentativas--;
+    }
+    
+    if(resposta>i){
+	printf("O numero que estou pensando eh menor que esse numero\n\n");
+	printf("Voce tem %d tentativas\n\n",tentativas-1);
+    tentativas--;
+    }
+    
+    if(resposta==i){
+	printf("Voce acertou!!!\n\n");
+    }
+    
+	}
+
+	 if(tentativas==0){
+	 	system("pause");
+	 	system("cls || clear");
+    	printf("Deseja jogar novamente?Digite 1 para sim,ou 0 para voltar ao menu inicial.\n\n");
+        scanf("%d", &resposta);
+        if (resposta==1){
+	    adivinhe_o_numero();
+        }else{
+        menu_principal();
+  }
+	}
+}
