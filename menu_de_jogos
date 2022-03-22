@@ -1,0 +1,331 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void menu_principal();
+void pergunta_resposta();
+void olhoDeCobra();
+void rodada_extra_1();
+void rodada_extra_2();
+void rodada_jogador_2();
+void rodada_jogador_1();
+void adivinhe_o_numero();
+
+int main()
+{
+	menu_principal();
+	return 0;
+}
+void menu_principal(){
+	system("cls || clear");
+    int continuar=1;
+
+    do
+    {
+        printf("Bem Vindo!Digite qual minigame voce quer jogar.\n\n");
+        printf("Digite 1 para jogar Pergunta e resposta.\n");
+		printf("Digite 2 para jogar Adivinhe o numero.\n");
+		printf("Digite 3 para jogar Olho de cobra.\n");;
+        printf("Digite 0 para sair do programa.\n");
+
+        scanf("%d", &continuar);
+        system("cls || clear");
+
+        switch(continuar)
+        {
+            case 1:
+                //Pergunta e resposta
+                pergunta_resposta();
+                break;
+
+            case 2:
+                adivinhe_o_numero();
+                break;
+
+            case 3:
+                //Olho de cobra
+                olhoDeCobra();
+                break;
+
+            case 0:
+  	           exit(0);
+                break;
+
+            default:
+                printf("Digite uma opcao valida\n");
+        }
+    } while(continuar);
+}
+//-------------------primeiro jogo----------------------
+void pergunta_resposta(){
+	int resposta;
+    int r_c=0;
+
+//Primeira pergunta
+system("cls || clear");
+printf("Normalmente, quantos litros de sangue uma pessoa tem? Em media, quantos sao retirados numa doacao de sangue?\n");
+printf("1) Tem entre 2 a 4 litros. Sao retirados 450 mililitros.\n");
+printf("2) Tem entre 4 a 6 litros. Sao retirados 450 mililitros.\n");
+printf("3) Tem 10 litros. Sao retirados 2 litros.\n");
+printf("Digite o numero da sua resposta\n");
+
+scanf("%d", &resposta);
+  
+if(resposta==2){
+printf("resposta correta!\n");
+r_c++;
+system("pause");
+}else{
+printf("resposta incorreta\n");
+printf("A resposta correta eh:\n2) Tem entre 4 a 6 litros. Sao retirados 450 mililitros.\n\n");
+system("pause");
+}
+//Segunda Pergunta
+system("cls || clear");
+printf("De quem eh a famosa frase Penso, logo existo?\n");
+printf("1) Platao.\n");
+printf("2) Galileu Galilei.\n");
+printf("3) Descartes\n");
+printf("Digite o numero da sua resposta\n");
+
+scanf("%d", &resposta);
+  
+if(resposta==3){
+printf("resposta correta!\n");
+r_c++;
+system("pause");
+}else{
+printf("resposta incorreta\n");
+printf("A resposta correta eh:\n3)Descartes\n\n");
+system("pause");
+}
+//Terceira Pergunta 
+system("cls || clear");
+printf("De onde eh a invenção do chuveiro eletrico?\n");
+printf("1) Franca.\n");
+printf("2) Inglaterra.\n");
+printf("3) Brasil.\n");
+printf("Digite o numero da sua resposta\n\n");
+
+scanf("%d", &resposta);
+
+  
+if(resposta==3){
+printf("resposta correta!\n");
+r_c++;
+system("pause");
+}else{
+printf("resposta incorreta\n");
+printf("A resposta correta eh:\n3)Brasil\n\n");
+system("pause");
+}
+system("cls || clear");
+  printf("o numero de respostas corretas eh:%d\n\n",r_c);
+  printf("Deseja jogar novamente?Digite 1 para sim,ou 0 para voltar ao menu inicial.\n\n");
+  scanf("%d", &resposta);
+  if (resposta==1){
+	  pergunta_resposta();
+  }else{
+	  menu_principal();
+  }
+}
+//-------------------segundo jogo----------------------
+
+void adivinhe_o_numero(){
+int resposta;
+int i;
+int j=0;
+int tentativas=4;
+i=rand() % 1000;
+  
+    printf("Estou pensando em um numero entre 0 e 1000.Tente adivinha qual eh e digite a sua resposta:\n\n"); 	
+    for(j=0;j<5;j++){
+  	if(i!=resposta){
+	scanf("%d",&resposta);
+	printf("\n");
+    if(resposta<i){
+    system("cls || clear");	
+	printf("O numero que estou pensando eh maior que %d\n\n",resposta);
+	printf("digite outro numero\n\n");
+	printf("Voce tem %d tentativas\n\n",tentativas);
+    tentativas--;
+    }
+    
+    if(resposta>i){
+    system("cls || clear");	
+	printf("O numero que estou pensando eh menor que %d\n\n",resposta);
+	printf("digite outro numero\n\n");
+	printf("Voce tem %d tentativas\n\n",tentativas);
+	
+    tentativas--;
+    
+    }
+    
+    if(resposta==i){
+ 	system("cls || clear");
+	printf("Voce acertou!!!\n\n");
+	}
+    
+	}
+	}
+	 if(j==5){
+	 	system("pause");
+	 	system("cls || clear");
+    	printf("Deseja jogar novamente?Digite 1 para sim,ou 0 para voltar ao menu inicial.\n\n");
+        scanf("%d", &resposta);
+        if (resposta==1){
+        system("cls || clear");		
+	    adivinhe_o_numero();
+        }else{
+        system("cls || clear");	
+        menu_principal();
+  }
+	}
+}
+
+
+
+//-------------------terceiro jogo----------------------
+
+
+int dados(int l){
+	l = 1 + rand()%5;
+    return l;
+}
+
+void olhoDeCobra(void){
+	printf("---SEJAM BEM VINDOS AO OLHO DE COBRA---\n");
+	getchar();
+	printf("O objetivo desse jogo eh acumular o total de 50 pontos\n");
+	printf("disputados por 2 jogadores, o primeiro eh o vencedor!!\n");
+	getchar();
+	printf("Como sera feito?\n");
+	getchar();
+	printf("O jogo eh em turnos, em cada um o jogador tera a opcao\n");
+	printf("de jogar os dados ou passar a vez e a soma dos valores\n");
+	printf("desses dados sera adicionado ao valor total do jogador\n");
+	printf("Porem, se em um dado cair o numero 1 ele perde o total\n");
+	printf("de pontos do turno, se ambos dados cairem em 1 o total\n");
+	printf("de pontos acumulados durante o jogo eh zerado.\n");
+	getchar();
+	printf("Boa sorte!\n");
+	getchar();
+	system("cls");
+
+	char jg1[20];
+	char jg2[20];
+	int l=0;
+	int vez,resp=0;
+	int turno=0;
+	int j1,j2,opcao =0;
+	int pts1=0,pts2=0;
+	srand(time(NULL));
+	
+	
+	printf("Jogador 1:\n");
+	scanf("%s",jg1);	
+	printf("Jogador 2:\n");
+	scanf("%s",jg2);
+	
+	printf("Os dados serao jogados para decidir quem ira comecar!\n");
+	getchar();
+	printf("De 1 a 3, %s vence, de 4 a 6, %s vence\n",jg1,jg2);
+	getchar();
+	l = dados(l);
+	printf("%d\n",l);
+	if(l<4){
+		vez = 1;
+		printf("%s joga primeiro\n",jg1);
+	}else{
+		vez = 2;
+		printf("%s joga primeiro\n",jg2);
+	}
+	
+	while(opcao!=3){
+		if(vez==1){
+			printf("Vez de %s\n",jg1);
+		}else{
+			printf("Vez de %s\n",jg2);
+		}
+		printf("1-Jogar?\n");
+		printf("2-Finalizar turno?\n");
+		scanf("%d",&opcao);
+		switch(opcao){
+		case 1:{
+			j1 = dados(l);
+			printf("Dado 1:%d\n",j1);
+			getchar();
+			j2 = dados(l);
+	   	   	printf("Dado 2:%d\n",j2);
+	   	   	getchar();
+	   	   	if(j1<2 && j2<2){
+	   	   		    if(vez==1){
+  		   	 	   	    vez = 2;
+						printf("%s perdeu seu total de pontos\n",jg1);
+  				  	    pts1 = 0;
+					}else if(vez==2){
+						vez = 1;
+						printf("%s perdeu seu total de pontos\n",jg2);
+		   				  pts2 = 0;
+					}	    
+			}else if(j1<2||j2<2){
+				    if(vez==1){
+				    	vez = 2;
+						printf("%s perdeu sua vez e nao pontuou\n",jg1);
+			  			turno = 0;
+					}else if(vez==2){
+						vez = 1;
+						printf("%s perdeu sua vez e nao pontuou\n",jg2);
+			  			turno = 0;
+					}
+			}else{
+				if(vez==1){
+					turno += (j1+j2);
+					if((turno+pts1)<50){
+						printf("Total de pontos %s:%d\n",jg1,pts1);
+						printf("%s pontua + %d\n",jg1,turno);
+					}else{
+						printf("%s ganhou o jogo!!!\n",jg1);
+  	  	  	            printf("Deseja jogar novamente ?\n Pressione 1 pra sim, 2 pra não.\n");
+						scanf("%d",&resp);
+						if(resp==1){
+							olhoDeCobra();
+						}else{
+							menu_principal();
+						}
+					}	
+ 	   			}else if(vez==2){
+ 	   				if((turno+pts2)<50){
+						turno += (j1+j2);
+ 	   					printf("%s pontua + %d\n",jg2,turno);
+						printf("Total de pontos %s:%d\n",jg2,pts2);	
+					}else{
+						printf("%s ganhou o jogo!!!\n",jg2);
+						printf("Deseja jogar novamente ?\n Pressione 1 pra sim, 2 pra nao.\n");
+						scanf("%d",&resp);
+						if(resp==1){
+							olhoDeCobra();
+						}else{
+							menu_principal();
+						}
+						}
+ 	   				
+			}	
+			}
+			break;
+  	    }
+  	    
+		case 2:
+			if(vez==1){
+				pts1 += turno;
+				vez = 2;
+			}else{
+				pts2 += turno;
+				vez = 1;
+			}
+			turno = 0;
+		}
+	}
+}
+	
