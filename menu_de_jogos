@@ -18,7 +18,7 @@ int main()
 	return 0;
 }
 void menu_principal(){
-	system("cls || clear");
+	system("cls");
     int continuar=1;
 
     do
@@ -63,7 +63,7 @@ void pergunta_resposta(){
     int r_c=0;
 
 //Primeira pergunta
-system("cls || clear");
+system("cls");
 printf("Normalmente, quantos litros de sangue uma pessoa tem? Em media, quantos sao retirados numa doacao de sangue?\n");
 printf("1) Tem entre 2 a 4 litros. Sao retirados 450 mililitros.\n");
 printf("2) Tem entre 4 a 6 litros. Sao retirados 450 mililitros.\n");
@@ -75,52 +75,52 @@ scanf("%d", &resposta);
 if(resposta==2){
 printf("resposta correta!\n");
 r_c++;
-system("pause");
+getchar();
 }else{
 printf("resposta incorreta\n");
 printf("A resposta correta eh:\n2) Tem entre 4 a 6 litros. Sao retirados 450 mililitros.\n\n");
 system("pause");
 }
 //Segunda Pergunta
-system("cls || clear");
+system("cls");
 printf("De quem eh a famosa frase Penso, logo existo?\n");
 printf("1) Platao.\n");
 printf("2) Galileu Galilei.\n");
 printf("3) Descartes\n");
 printf("Digite o numero da sua resposta\n");
 
-scanf("%d", &resposta);
+scanf("%d\n", &resposta);
   
 if(resposta==3){
 printf("resposta correta!\n");
 r_c++;
-system("pause");
+getchar();
 }else{
 printf("resposta incorreta\n");
 printf("A resposta correta eh:\n3)Descartes\n\n");
-system("pause");
+getchar();
 }
 //Terceira Pergunta 
-system("cls || clear");
+system("cls");
 printf("De onde eh a invenção do chuveiro eletrico?\n");
 printf("1) Franca.\n");
 printf("2) Inglaterra.\n");
 printf("3) Brasil.\n");
 printf("Digite o numero da sua resposta\n\n");
 
-scanf("%d", &resposta);
+scanf("%d\n", &resposta);
 
   
 if(resposta==3){
 printf("resposta correta!\n");
 r_c++;
-system("pause");
+getchar();
 }else{
 printf("resposta incorreta\n");
 printf("A resposta correta eh:\n3)Brasil\n\n");
-system("pause");
+getchar();
 }
-system("cls || clear");
+system("clear");
   printf("o numero de respostas corretas eh:%d\n\n",r_c);
   printf("Deseja jogar novamente?Digite 1 para sim,ou 0 para voltar ao menu inicial.\n\n");
   scanf("%d", &resposta);
@@ -140,45 +140,43 @@ int tentativas=4;
 i=rand() % 1000;
   
     printf("Estou pensando em um numero entre 0 e 1000.Tente adivinha qual eh e digite a sua resposta:\n\n"); 	
-    for(j=0;j<5;j++){
-  	if(i!=resposta){
-	scanf("%d",&resposta);
-	printf("\n");
-    if(resposta<i){
-    system("cls || clear");	
-	printf("O numero que estou pensando eh maior que %d\n\n",resposta);
-	printf("digite outro numero\n\n");
-	printf("Voce tem %d tentativas\n\n",tentativas);
-    tentativas--;
-    }
+  	for(j=0;j<5;j++){
+  		if(i!=resposta){
+			scanf("%d",&resposta);
+			printf("\n");
+    	if(resposta<i){
+    		system("clear");	
+			printf("O numero que estou pensando eh maior que %d\n\n",resposta);
+	   	   	printf("digite outro numero\n\n");
+	   	   	printf("Voce tem %d tentativas\n\n",tentativas);
+   	   	   tentativas--;
+ 		}
     
     if(resposta>i){
-    system("cls || clear");	
-	printf("O numero que estou pensando eh menor que %d\n\n",resposta);
-	printf("digite outro numero\n\n");
-	printf("Voce tem %d tentativas\n\n",tentativas);
-	
-    tentativas--;
-    
-    }
+    	system("clear");	
+		printf("O numero que estou pensando eh menor que %d\n\n",resposta);
+	   	printf("digite outro numero\n\n");
+	   	printf("Voce tem %d tentativas\n\n",tentativas);
+	    tentativas--;
+	}
     
     if(resposta==i){
- 	system("cls || clear");
-	printf("Voce acertou!!!\n\n");
+ 		system("clear");
+		printf("Voce acertou!!!\n\n");
 	}
     
 	}
 	}
 	 if(j==5){
 	 	system("pause");
-	 	system("cls || clear");
+	 	system("clear");
     	printf("Deseja jogar novamente?Digite 1 para sim,ou 0 para voltar ao menu inicial.\n\n");
         scanf("%d", &resposta);
         if (resposta==1){
-        system("cls || clear");		
+        system("clear");		
 	    adivinhe_o_numero();
         }else{
-        system("cls || clear");	
+        system("clear");	
         menu_principal();
   }
 	}
@@ -328,4 +326,5 @@ void olhoDeCobra(void){
 		}
 	}
 }
+	
 	
