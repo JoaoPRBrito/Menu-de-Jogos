@@ -63,13 +63,11 @@ void pergunta_resposta(){
     int r_c=0;
 
 //Primeira pergunta
-system("cls");
 printf("Normalmente, quantos litros de sangue uma pessoa tem? Em media, quantos sao retirados numa doacao de sangue?\n");
 printf("1) Tem entre 2 a 4 litros. Sao retirados 450 mililitros.\n");
 printf("2) Tem entre 4 a 6 litros. Sao retirados 450 mililitros.\n");
 printf("3) Tem 10 litros. Sao retirados 2 litros.\n");
 printf("Digite o numero da sua resposta\n");
-
 scanf("%d", &resposta);
   
 if(resposta==2){
@@ -79,17 +77,15 @@ getchar();
 }else{
 printf("resposta incorreta\n");
 printf("A resposta correta eh:\n2) Tem entre 4 a 6 litros. Sao retirados 450 mililitros.\n\n");
-system("pause");
+getchar();
 }
 //Segunda Pergunta
-system("cls");
 printf("De quem eh a famosa frase Penso, logo existo?\n");
 printf("1) Platao.\n");
 printf("2) Galileu Galilei.\n");
 printf("3) Descartes\n");
 printf("Digite o numero da sua resposta\n");
-
-scanf("%d\n", &resposta);
+scanf("%d", &resposta);
   
 if(resposta==3){
 printf("resposta correta!\n");
@@ -100,15 +96,14 @@ printf("resposta incorreta\n");
 printf("A resposta correta eh:\n3)Descartes\n\n");
 getchar();
 }
+
 //Terceira Pergunta 
-system("cls");
-printf("De onde eh a invenção do chuveiro eletrico?\n");
+printf("De onde eh a invencao do chuveiro eletrico?\n");
 printf("1) Franca.\n");
 printf("2) Inglaterra.\n");
 printf("3) Brasil.\n");
 printf("Digite o numero da sua resposta\n\n");
-
-scanf("%d\n", &resposta);
+scanf("%d", &resposta);
 
   
 if(resposta==3){
@@ -120,9 +115,8 @@ printf("resposta incorreta\n");
 printf("A resposta correta eh:\n3)Brasil\n\n");
 getchar();
 }
-system("clear");
   printf("o numero de respostas corretas eh:%d\n\n",r_c);
-  printf("Deseja jogar novamente?Digite 1 para sim,ou 0 para voltar ao menu inicial.\n\n");
+  printf("Deseja jogar novamente?\nDigite 1 para sim,ou 0 para voltar ao menu inicial.\n\n");
   scanf("%d", &resposta);
   if (resposta==1){
 	  pergunta_resposta();
@@ -133,50 +127,49 @@ system("clear");
 //-------------------segundo jogo----------------------
 
 void adivinhe_o_numero(){
+srand(time(NULL));
 int resposta;
 int i;
 int j=0;
 int tentativas=4;
-i=rand() % 1000;
+i=  1+rand() % 1000;  
+
   
-    printf("Estou pensando em um numero entre 0 e 1000.Tente adivinha qual eh e digite a sua resposta:\n\n"); 	
+    printf("Estou pensando em um numero entre 0 e 1000.Tente adivinha qual eh e digite a sua resposta:\n\n");
+	printf("%d",i); 	
   	for(j=0;j<5;j++){
   		if(i!=resposta){
 			scanf("%d",&resposta);
 			printf("\n");
-    	if(resposta<i){
-    		system("clear");	
+    	if(resposta<i){	
 			printf("O numero que estou pensando eh maior que %d\n\n",resposta);
 	   	   	printf("digite outro numero\n\n");
 	   	   	printf("Voce tem %d tentativas\n\n",tentativas);
-   	   	   tentativas--;
+   	   	    tentativas--;
  		}
     
-    if(resposta>i){
-    	system("clear");	
-		printf("O numero que estou pensando eh menor que %d\n\n",resposta);
-	   	printf("digite outro numero\n\n");
-	   	printf("Voce tem %d tentativas\n\n",tentativas);
-	    tentativas--;
-	}
+    	if(resposta>i){
+			printf("O numero que estou pensando eh menor que %d\n\n",resposta);
+		   	printf("digite outro numero\n\n");
+		   	printf("Voce tem %d tentativas\n\n",tentativas);
+		    tentativas--;
+	   	}
     
-    if(resposta==i){
- 		system("clear");
+    	if(resposta==i){
 		printf("Voce acertou!!!\n\n");
-	}
+	   	}
     
+		}
 	}
-	}
+	
 	 if(j==5){
-	 	system("pause");
-	 	system("clear");
-    	printf("Deseja jogar novamente?Digite 1 para sim,ou 0 para voltar ao menu inicial.\n\n");
+    	printf("Deseja jogar novamente?\nDigite 1 para sim,ou 0 para voltar ao menu inicial.\n\n");
         scanf("%d", &resposta);
         if (resposta==1){
-        system("clear");		
+        system("cls");		
 	    adivinhe_o_numero();
         }else{
-        system("clear");	
+        system("cls");	
         menu_principal();
   }
 	}
@@ -253,7 +246,6 @@ void olhoDeCobra(void){
 		case 1:{
 			j1 = dados(l);
 			printf("Dado 1:%d\n",j1);
-			getchar();
 			j2 = dados(l);
 	   	   	printf("Dado 2:%d\n",j2);
 	   	   	getchar();
