@@ -135,8 +135,7 @@ int tentativas=4;
 i=  1+rand() % 1000;  
 
   
-    printf("Estou pensando em um numero entre 0 e 1000.Tente adivinha qual eh e digite a sua resposta:\n\n");
-	printf("%d",i); 	
+    printf("Estou pensando em um numero entre 0 e 1000.Tente adivinha qual eh e digite a sua resposta:\n\n");	
   	for(j=0;j<5;j++){
   		if(i!=resposta){
 			scanf("%d",&resposta);
