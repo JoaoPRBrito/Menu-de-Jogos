@@ -1,6 +1,6 @@
 Equipe composta por:
-João Pedro Brito
-Leonardo Arero
+João Pedro Brito,
+Leonardo Arero,
 Nailton Sampaio
 # Menu-de-Jogos
  A ideia do código é desenvolver um sistema com vários mini jogos. 
