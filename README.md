@@ -1,3 +1,7 @@
+Equipe composta por:
+João Pedro Brito
+Leonardo Arero
+Nailton Sampaio
 # Menu-de-Jogos
  A ideia do código é desenvolver um sistema com vários mini jogos. 
  Ao iniciar o aplicativo o usuário vai se deparar com um menu contendo o nome e uma breve explicação do aplicativo e 4 opções.  
