@@ -48,13 +48,13 @@ void menu_principal(){
                 break;
 
             case 0:
-  	           exit(0);
+  	            continuar = 0;
                 break;
 
             default:
                 printf("Digite uma opcao valida\n");
         }
-    } while(continuar);
+    } while(continuar!=0);
 }
 //-------------------primeiro jogo----------------------
 void pergunta_resposta(){
@@ -316,5 +316,6 @@ void olhoDeCobra(void){
 		}
 	}
 }
+	
 	
 	
